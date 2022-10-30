@@ -24,6 +24,7 @@ eureka:
       defaultZone: http://172.20.10.4:9999/eureka
     register-with-eureka: true
   instance:
+    ip-address: ${IP_HOST}
     prefer-ip-address: true
 
 # swagger
