@@ -1,0 +1,54 @@
+#server:
+#  port: 9082
+#spring:
+#  mail:
+#    default-encoding: UTF-8
+#    host: smtp.gmail.com
+#    protocol: smtp
+#    username: quanph1998@gmail.com
+#    password: vyzzumkqqvjseycr
+#    port: 587
+#    test-connection: false
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+server:
+  port: 9082
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:mysql://localhost:3306/microapp?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&maxReconnects=50
+    url: jdbc:mysql://172.20.10.4:3306/microapp?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&maxReconnects=50
+    username: root
+    password: root@123
+    hikari:
+      maximumPoolSize: 150
+      minimum-idle: 2
+      idle-timeout: 60000
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1 FROM DUAL
+      connection-timeout: 30000
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: false
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: quanph1998@gmail.com
+    password: ogdakuavilkvyzaq
+    port: 587
+    test-connection: false
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+#          ssl:
+#            enable: true
+          starttls:
+            enable: true

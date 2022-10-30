@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  #  gateway
+  cloud:
+    discovery:
+      enabled: true
+    gateway:
+      routes:
+        - id: user-route
+          uri: lb://account-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+        - id: statistic-route
+          uri: lb://statistic-service
+          predicates:
+            - Path=/statistic/**
+          filters:
+            - StripPrefix=1
+        - id: email-route
+          uri: lb://email-service
+          predicates:
+            - Path=/email/**
+          filters:
+            - StripPrefix=1
+        - id: client-detail-route
+          uri: lb://client-registry
+          predicates:
+            - Path=/client/**
+          filters:
+            - StripPrefix=1
+
+

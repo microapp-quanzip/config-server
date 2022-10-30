@@ -1,0 +1,4 @@
+build:
+docker build -f DockerFileName -t ImageName:version .
+Run:
+docker run -n ContainerName -dp outPort:inPort imageName:version

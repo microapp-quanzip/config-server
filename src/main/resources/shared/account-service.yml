@@ -1,0 +1,63 @@
+server:
+  port: 9080
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:mysql://localhost:3306/microapp?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&maxReconnects=50
+    url: jdbc:mysql://172.20.10.4:3306/microapp?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&maxReconnects=50&allowPublicKeyRetrieval=True
+    username: root
+    password: root@123
+    hikari:
+      maximumPoolSize: 150
+      minimum-idle: 2
+      idle-timeout: 60000
+      max-lifetime: 1800000
+      connection-test-query: SELECT 1 FROM DUAL
+      connection-timeout: 30000
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: false
+
+feign:
+  client:
+    config:
+      default:
+        connectionTimeout: 5000
+        readTimeout: 5000
+  circuitbreaker:
+    enabled: true
+
+statistic:
+  clientId: statistic
+  clientSecret: 123
+#  accessTokenUri: http://localhost:9000/oauth/token
+  accessTokenUri: http://172.20.10.4:9000/oauth/token
+  scopes: statistic
+
+email:
+  clientId: email
+  clientSecret: 123
+#  accessTokenUri: http://localhost:9000/oauth/token
+  accessTokenUri: http://172.20.10.4:9000/oauth/token
+  scopes: email
+#spring:
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:mysql://localhost:3306/microapp2?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false&maxReconnects=50
+#    username: root
+#    password:
+#    hikari:
+#      maximumPoolSize: 150
+#      minimum-idle: 10
+#      idle-timeout: 60000
+#      max-lifetime: 1800000
+#      connection-test-query: SELECT 1 FROM DUAL
+#      connection-timeout: 30000
+#      data-source-properties:
+#        cachePrepStmts: true
+#        prepStmtCacheSize: 250
+#        prepStmtCacheSqlLimit: 2048
+#        useServerPrepStmts: false

@@ -1,0 +1,47 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+
+# Admin
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# eureka
+eureka:
+  client:
+    serviceUrl:
+#      defaultZone: http://localhost:9999/eureka
+      defaultZone: http://172.20.10.4:9999/eureka
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+
+# swagger
+springdoc:
+  swagger-ui:
+    path: /sw
+
+# Logging
+logging:
+  level:
+    ROOT: info
+    web.log.error.server: ERROR
+    web.log.debug.server: DEBUG
+    web.log.info.server: INFO
+    web.log.login.and.logout: INFO
+  file:
+    name: logs/backe-e.log
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
+      max-history: 15
