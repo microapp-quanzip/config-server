@@ -1,14 +1,27 @@
 spring:
   application:
     name: config-server
-  profiles:
-    active: native
+#  profiles:
+#    active: native
   cloud:
     config:
+#      server:
+#        native:
+#          searchLocations: classpath:/shared
       server:
-        native:
-          searchLocations: classpath:/shared
-
+        git:
+          uri: https://quanzip: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@github.com/microapp-quanzip/config-folder.git
+#          search-paths:
+#            - shared
+#         search-paths:
+#            - shared
+          username: quanaqtzip4@gmail.com
+          password: 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
+          default-label: master
+  security:
+    user:
+      name: configserver
+      password: cfcv@123
 eureka:
   client:
     serviceUrl:
